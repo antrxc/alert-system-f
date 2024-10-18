@@ -1,0 +1,4 @@
+scikit-learn==1.0.2
+numpy==1.21.2
+twilio==7.0.0  # For SMS/Calls (example)
+flask==2.1.1  # If you want to build a web service for alerts

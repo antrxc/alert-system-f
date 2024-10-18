@@ -1,0 +1,5 @@
+TWILIO_ACCOUNT_SID = 'AC538334de1b6bb64e496d23f68efac494'
+TWILIO_AUTH_TOKEN = 'a94a1a67568cf5de60988c1ffbecd5e0'
+TWILIO_PHONE_NUMBER = '+18646333323'
+EMAIL_ADDRESS = 'pixel4ge@gmail.com'
+EMAIL_PASSWORD = 'me.an.tr.0.6'  # Use an App Password if needed
