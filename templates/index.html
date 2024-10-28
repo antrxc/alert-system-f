@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Alert System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Disaster Alert System</h1>
+        
+        <div class="status-panel">
+            <div class="status-indicator" id="systemStatus">
+                System Status: Normal
+            </div>
+        </div>
+
+        <div class="sensor-grid">
+            <div class="sensor-card">
+                <h3>Temperature</h3>
+                <div class="sensor-value" id="temperature">--</div>
+                <div class="sensor-unit">°C</div>
+            </div>
+            <div class="sensor-card">
+                <h3>Smoke Level</h3>
+                <div class="sensor-value" id="smokeLevel">--</div>
+                <div class="sensor-unit">ppm</div>
+            </div>
+            <div class="sensor-card">
+                <h3>Gas Level</h3>
+                <div class="sensor-value" id="gasLevel">--</div>
+                <div class="sensor-unit">ppm</div>
+            </div>
+        </div>
+
+        <div class="last-updated" id="lastUpdated">
+            Last Updated: Never
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
