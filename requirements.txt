@@ -1,4 +1,10 @@
-scikit-learn==1.0.2
-numpy==1.21.2
-twilio==7.0.0  # For SMS/Calls (example)
-flask==2.1.1  # If you want to build a web service for alerts
+wheel>=0.42.0
+numpy==1.26.4
+scikit-learn==1.4.1.post1
+Flask==3.0.2
+Werkzeug==3.0.1
+twilio==8.13.0
+pandas==2.0.0
+setuptools==69.2.0
+
+

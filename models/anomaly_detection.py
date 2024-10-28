@@ -1,6 +1,10 @@
 import pandas as pd
-from sklearn.ensemble import IsolationForest
 import joblib
+import warnings
+from sklearn.ensemble import IsolationForest
+
+# Filter out the specific UserWarning about feature names
+warnings.filterwarnings('ignore', category=UserWarning, message='X does not have valid feature names*')
 
 class AnomalyDetector:
     def __init__(self, model_path='models/anomaly_model.pkl'):

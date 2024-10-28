@@ -1,6 +1,7 @@
 from twilio.rest import Client
-from config.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, EMAIL_PASSWORD, EMAIL_ADDRESS
-import smtplib
+from twilio.twiml.voice_response import VoiceResponse
+from config.settings import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER
+
 from email.mime.text import MIMEText
 
 class AlertService:
@@ -14,18 +15,22 @@ class AlertService:
             to=to_phone
         )
 
-    def send_email(self, to_email, subject, message):
-        smtp_server = 'smtp.gmail.com'
-        smtp_port = 587
-        from_email = EMAIL_ADDRESS
-        password = EMAIL_PASSWORD
 
-        msg = MIMEText(message)
-        msg['Subject'] = subject
-        msg['From'] = from_email
-        msg['To'] = to_email
+    def make_call(self, to_phone, message):
+        """
+        Makes a voice call using Twilio
+        :param to_phone: Destination phone number
+        :param message: Message to be spoken in the call
+        """
+        # Create TwiML response
+        response = VoiceResponse()
+        response.say(message)
+        response.pause(length=1)
+        response.say(message)  # Repeat the message
 
-        with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()
-            server.login(from_email, password)
-            server.sendmail(from_email, to_email, msg.as_string())
+        # Make the call with inline TwiML
+        self.twilio_client.calls.create(
+            twiml=str(response),
+            from_=TWILIO_PHONE_NUMBER,
+            to=to_phone
+        )
