@@ -16,7 +16,7 @@ latest_data = {
     'smoke_level': 0,
     'gas_level': 0,
     'is_anomalous': False,
-    'last_updated': None
+    'last_updated': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 }
 
 @app.route('/')
