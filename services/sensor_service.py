@@ -18,7 +18,7 @@ class SensorService:
         }
 
     def _simulate_reading(self, normal_range):
-        if random.random() < 0.05:
+        if random.random() < 0.001:
             return self._simulate_anomaly(normal_range)
 
         return random.uniform(*normal_range)
