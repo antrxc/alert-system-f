@@ -36,10 +36,6 @@ This is a production-level disaster alert system that uses anomaly detection fro
 
 2. The system will start a Flask web server and a background thread for monitoring sensor data.
 
-### Testing
-1. Run the unit tests:
-    ```bash
-    python -m unittest discover tests
     ```
 
 ## Code Overview

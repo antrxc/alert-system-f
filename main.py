@@ -8,7 +8,9 @@ import datetime
 import time
 import numpy as np
 import os
+import pytz
 
+ist = pytz.timezone('Asia/Kolkata')
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -87,7 +89,7 @@ def run_monitoring():
         latest_data = {
             **data,
             'is_anomalous': is_anomalous,
-            'last_updated': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            'last_updated': datetime.datetime.now(ist).strftime("%Y-%m-%d %H:%M:%S")
         }
 
         # Send alerts if an anomaly is detected
@@ -107,4 +109,4 @@ if __name__ == "__main__":
     monitoring_thread.start()
 
     # Run the Flask app
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8080)
